@@ -37,11 +37,13 @@ namespace formula1964nthprime
             }
         }
 
-        public int willansnthprimeformula1964(int x)
+       
+
+        public double doublewillansnthprimeformula1964(int x)
         {
             int n = x;
-            int c = 0;
-            int nthprime = 0;
+            double c = 0;
+            double nthprime = 0;
 
             for (int i = 1; i <= Math.Pow(n, 2); i++)
             {
@@ -49,16 +51,14 @@ namespace formula1964nthprime
 
                 for (int j = 1; j <= i; j++)
                 {
-                    c += (int)(Math.Cos(Math.PI) * Math.Pow(((Factorial(j - 1) + 1) / j), 2));
+                    c += Math.Pow((Math.Cos(Math.PI) * ((Factorial(j - 1) + 1) / j)), 2);
                 }
-               
-                    nthprime += (int)Math.Pow((n / c), (1 / n));
-                
+
+                nthprime += Math.Pow((n / c), (1 / n));
+
             }
             return 1 + nthprime; // aprox is : return 1 + nthprime/3 + 1
         }
-    
-
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -66,9 +66,13 @@ namespace formula1964nthprime
             for (int i = 0; i < 20; i++)
             {
                 this.textBox1.Text += i.ToString() + ": \r\t";
-                this.textBox1.Text += willansnthprimeformula1964(i).ToString();
+                this.textBox1.Text += doublewillansnthprimeformula1964(i).ToString();
+                this.textBox1.Text += i.ToString() + ": \r\t";
+                this.textBox1.Text += (doublewillansnthprimeformula1964(i)/3+1).ToString();
                 this.textBox1.Text += "\r\n";
             }
+
+          
         }
     }
 }
