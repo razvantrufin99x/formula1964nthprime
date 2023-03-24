@@ -39,13 +39,14 @@ namespace formula1964nthprime
 
        
 
+       
         public double doublewillansnthprimeformula1964(int x)
         {
             int n = x;
             double c = 0;
             double nthprime = 0;
 
-            for (int i = 1; i <= Math.Pow(n, 2); i++)
+            for (int i = 1; i <= Math.Pow(2, n); i++)
             {
 
 
@@ -53,22 +54,45 @@ namespace formula1964nthprime
                 {
                     c += Math.Pow((Math.Cos(Math.PI) * ((Factorial(j - 1) + 1) / j)), 2);
                 }
-
-                nthprime += Math.Pow((n / c), (1 / n));
-
+                try
+                {
+                    nthprime += Math.Pow((n / c), (1 / n));
+                }
+                catch { };
+                    c = 0;
             }
-            return 1 + nthprime; // aprox is : return 1 + nthprime/3 + 1
+            return 1 + nthprime;
         }
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            for (int i = 0; i < 20; i++)
+            this.textBox1.Text += "nth number -> " + "prime -> " + "prime/3+1 -> " + "prime/3+1.5 -> " + "ceiling(prime/3+1.5) -> " + "floor(prime/3+1.5) -> " + "difference";
+            this.textBox1.Text += "\r\n";
+            for (int i = 0; i < 10; i++)
             {
-                this.textBox1.Text += i.ToString() + ": \r\t";
+                this.textBox1.Text += i.ToString() ;
+
+                this.textBox1.Text +=" \r\t";
                 this.textBox1.Text += doublewillansnthprimeformula1964(i).ToString();
-                this.textBox1.Text += i.ToString() + ": \r\t";
+
+                this.textBox1.Text += " \r\t";
                 this.textBox1.Text += (doublewillansnthprimeformula1964(i)/3+1).ToString();
+
+
+                this.textBox1.Text += " \r\t";
+                this.textBox1.Text += (doublewillansnthprimeformula1964(i)/3+1.5).ToString();
+
+
+                this.textBox1.Text += " \r\t";
+                this.textBox1.Text += Math.Ceiling(doublewillansnthprimeformula1964(i) / 3 + 1.5).ToString();
+
+                this.textBox1.Text += " \r\t";
+                this.textBox1.Text += Math.Ceiling(doublewillansnthprimeformula1964(i) / 3 + 1.5).ToString();
+
+                this.textBox1.Text += " \r\t";
+                this.textBox1.Text += ((Math.Ceiling(doublewillansnthprimeformula1964(i) / 3 + 1.5)) -(Math.Floor(doublewillansnthprimeformula1964(i) / 3 + 1.5))).ToString();
+
                 this.textBox1.Text += "\r\n";
             }
 

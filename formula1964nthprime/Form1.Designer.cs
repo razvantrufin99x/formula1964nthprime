@@ -36,14 +36,14 @@
             this.textBox1.Location = new System.Drawing.Point(12, 23);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(940, 642);
+            this.textBox1.Size = new System.Drawing.Size(1380, 642);
             this.textBox1.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 698);
+            this.ClientSize = new System.Drawing.Size(1425, 698);
             this.Controls.Add(this.textBox1);
             this.Name = "Form1";
             this.Text = "Form1";
